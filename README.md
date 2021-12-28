@@ -1,3 +1,11 @@
+# A short note about the code
+Since this is a small database, retrieving all the data immediately from the server is shorter than the way I wrote the code.
+I preferred to immediately get only the data of all the vehicles from the server, while the pilots and planets were get one by one to ensure that even if it was a database with a lot of pilots and planets the code would run well.
+
+
+
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).

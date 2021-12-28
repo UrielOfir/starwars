@@ -21,27 +21,28 @@ const PlanetsChart = () => {
     }
   });
 
-  const chartColumns = planets.map((planet) => {
-    let planetPopulationPrecent = Math.ceil(
-      (planet.population / maxPopulation) * 100
-    );
-    return (
-      <div key={planet.name}>
-        <div className="column-container">
-          <div>{planet.name}</div>
-          <div
-            className="column"
-            style={{ height: `${planetPopulationPrecent}%` }}
-          />
-          <div>{planet.population.toLocaleString()}</div>
+  const chartColumns = noPlanets ? (
+    <Loader />
+  ) : (
+    planets.map((planet) => {
+      let planetPopulationPrecent = Math.ceil(
+        (planet.population / maxPopulation) * 100
+      );
+      return (
+        <div key={planet.name}>
+          <div className="column-container">
+            <div>{planet.name}</div>
+            <div
+              className="column"
+              style={{ height: `${planetPopulationPrecent}%` }}
+            />
+            <div>{planet.population.toLocaleString()}</div>
+          </div>
         </div>
-      </div>
-    );
-  });
+      );
+    })
+  );
 
-  if (noPlanets) {
-    return <Loader />;
-  }
   return (
     <>
       <h1>Comparing the home planets’ own population</h1>
